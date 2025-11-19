@@ -5,6 +5,7 @@ import {
   generateRandomCondition,
   simulateRace,
   calculateRaceDuration,
+  selectRandomHorses,
 } from "../utils/raceEngine";
 
 export default createStore({
@@ -80,7 +81,7 @@ export default createStore({
 
   actions: {
     generateHorses({ commit }) {
-      const numberOfHorses = Math.floor(Math.random() * 20) + 1;
+      const numberOfHorses = 20;
       const colors = generateColorPalette(numberOfHorses);
 
       const horses = Array.from({ length: numberOfHorses }, (_, index) => ({
@@ -95,6 +96,8 @@ export default createStore({
     },
 
     generateRaceSchedule({ commit, state }) {
+      const numberOfRacingHorses = 10;
+
       if (state.horses.length === 0) {
         throw new Error("No horses available. Generate horses first.");
       }
@@ -102,7 +105,7 @@ export default createStore({
       const schedule = RACE_DISTANCES.map((distance, index) => ({
         round: index + 1,
         distance,
-        horses: [...state.horses],
+        horses: selectRandomHorses(state.horses, numberOfRacingHorses),
       }));
 
       commit("CLEAR_RACE_DATA");
