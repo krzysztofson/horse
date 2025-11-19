@@ -7,7 +7,7 @@
         <h1
           class="text-5xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 mb-2"
         >
-          🏇 Horse Racing Game
+          🏇 Horse 3000 - Racing Game
         </h1>
         <p class="text-gray-600">
           Generate horses, start races, and watch the competition!
