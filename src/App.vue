@@ -14,40 +14,37 @@
         </p>
       </div>
     </header>
+
+    <div class="main-content grid grid-cols-1 lg:grid-cols-12 gap-4 mb-4">
+      <div class="lg:col-span-3">
+        <HorseList />
+      </div>
+
+      <div class="lg:col-span-6">
+        <RaceTrack />
+      </div>
+
+      <div class="lg:col-span-3">
+        <RaceControls />
+      </div>
+    </div>
+
+    <div class="results-section">
+      <RaceResults />
+    </div>
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import HorseList from "./components/HorseList.vue";
+import RaceTrack from "./components/RaceTrack.vue";
+import RaceControls from "./components/RaceControls.vue";
+import RaceResults from "./components/RaceResults.vue";
+</script>
 
 <style scoped>
 .app-container {
   min-height: 100vh;
   padding-bottom: 20px;
-}
-
-.main-content {
-  max-height: 600px;
-}
-
-.main-content > div {
-  height: 600px;
-  overflow: hidden;
-}
-
-.results-section {
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-/* Responsive adjustments */
-@media (max-width: 1024px) {
-  .main-content {
-    max-height: none;
-  }
-
-  .main-content > div {
-    height: auto;
-    min-height: 400px;
-  }
 }
 </style>
